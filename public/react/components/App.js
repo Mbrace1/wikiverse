@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PagesList } from './PagesList';
+import { Article } from './Article';
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
@@ -7,6 +8,7 @@ import apiURL from '../api';
 export const App = () => {
 
 	const [pages, setPages] = useState([]);
+	const [articleContent, setArticleContent] = useState("asd")
 
 	async function fetchPages(){
 		try {
@@ -26,7 +28,8 @@ export const App = () => {
 		<main>	
       <h1>WikiVerse</h1>
 			<h2>An interesting 📚</h2>
-			<PagesList pages={pages} />
+			<PagesList setArticleContent={setArticleContent} pages={pages} />
+			<Article articleContent={articleContent} setArticleContent={setArticleContent}/>
 		</main>
 	)
 }
