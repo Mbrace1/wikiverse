@@ -6,7 +6,7 @@ export const PagesList = (props) => {
 	return <>
 		{
 			props.pages.map((page, idx) => {
-				return <Page setArticleContent={props.setArticleContent} page={page} key={idx} />
+				return <Page fetchOnePage={props.fetchOnePage} page={page} key={idx} />
 			})
 		}
 	</>
