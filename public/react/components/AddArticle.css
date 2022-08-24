@@ -1,0 +1,14 @@
+
+form {
+    padding: 1em;
+}
+
+.form-section {
+    margin-bottom: 1em;
+    display: flex;
+}
+
+.form-section label {
+    min-width: 60px;
+}
+

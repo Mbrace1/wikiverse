@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PagesList } from './PagesList';
 import { Article } from './Article';
+import { AddArticle } from './AddArticle';
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
@@ -44,6 +45,7 @@ export const App = () => {
 			{Object.keys(articleContent).length !== 0 && <Article 
 			author={articleContent.author.name} email={articleContent.author.email} content={articleContent.content} 
 			title={articleContent.title} status={articleContent.status} tags={articleContent.tags}/>}
+			<AddArticle apiURL={apiURL}/>
 		</main>
 	)
 }

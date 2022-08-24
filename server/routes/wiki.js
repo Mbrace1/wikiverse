@@ -14,6 +14,7 @@ router.get("/", async (req, res, next) => {
 
 // POST /wiki
 router.post("/", async (req, res, next) => {
+  // res.send(req.body)
   try {
     const [user, wasCreated] = await User.findOrCreate({
       where: {
@@ -27,7 +28,7 @@ router.post("/", async (req, res, next) => {
     await page.setAuthor(user);
 
     if(req.body.tags) {
-      const tagArray = req.body.tags.split(' ');
+      const tagArray = req.body.tags.split('#');
       const tags = [];
       for (let tagName of tagArray) {
         const [tag, wasCreated] = await Tag.findOrCreate({
