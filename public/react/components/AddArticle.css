@@ -12,3 +12,10 @@ form {
     min-width: 60px;
 }
 
+.form-section input {
+    width: 100%;
+}
+
+.input-note {
+    margin-bottom: 1em;
+}

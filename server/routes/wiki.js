@@ -28,7 +28,7 @@ router.post("/", async (req, res, next) => {
     await page.setAuthor(user);
 
     if(req.body.tags) {
-      const tagArray = req.body.tags.split('#');
+      const tagArray = req.body.tags.split(' ');
       const tags = [];
       for (let tagName of tagArray) {
         const [tag, wasCreated] = await Tag.findOrCreate({
@@ -61,30 +61,31 @@ router.get("/search", async (req, res, next) => {
 
 // PUT /wiki/:slug
 router.put("/:slug", async (req, res, next) => {
-  try {
-    const [updatedRowCount, updatedPages] = await Page.update(req.body, {
-      where: {
-        slug: req.params.slug
-      },
-      returning: true
-    });
+  res.send(req.body.tags.split(' '))
+  // try {
+  //   const [updatedRowCount, updatedPages] = await Page.update(req.body, {
+  //     where: {
+  //       slug: req.params.slug
+  //     },
+  //     returning: true
+  //   });
 
-    const tagArray = req.body.tags.split(' ');
-    const tags = await Promise.all(tagArray.map(async (tagName) => {
-      const [tag, wasCreated] = await Tag.findOrCreate({
-        where: {
-          name: tagName
-        }
-      });
-      return tag;
-    }));
+  //   const tagArray = req.body.tags.split(' ');
+  //   const tags = await Promise.all(tagArray.map(async (tagName) => {
+  //     const [tag, wasCreated] = await Tag.findOrCreate({
+  //       where: {
+  //         name: tagName
+  //       }
+  //     });
+  //     return tag;
+  //   }));
 
-    await updatedPages[0].setTags(tags);
+  //   await updatedPages[0].setTags(tags);
 
-    res.send(updatedPages[0]);
-  } catch (error) {
-    next(error);
-  }
+  //   res.send(updatedPages[0]);
+  // } catch (error) {
+  //   next(error);
+  // }
 });
 
 // DELETE /wiki/:slug

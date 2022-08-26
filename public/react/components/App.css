@@ -1,0 +1,41 @@
+
+.two-col {
+    margin: .5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.col {
+    text-align: center;
+}
+
+.col .inner {
+    padding-right: 1em;
+    height: 40vw;
+    overflow-y: scroll;
+}
+
+.col .inner::-webkit-scrollbar {
+    width: .5em;
+}
+   
+.col .inner::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+   
+.col .inner::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+  
+.col h2 {
+    margin-bottom: 1em;
+}
+
+h3 .btn {
+    margin-bottom: 1em;
+    font-size: .8em;
+    width: 100%;
+}
